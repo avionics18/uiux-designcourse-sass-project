@@ -1,0 +1,193 @@
+/*
+=============> Bootstrap Lean & Clean Startegy <==================
+*/
+
+
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+
+// 2. Include any default variable overrides here
+$primary: hsl(227, 55%, 30%);
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// 4. Include any optional Bootstrap components as you like
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/code";
+@import "../../node_modules/bootstrap/scss/grid";
+// @import "../../node_modules/bootstrap/scss/tables";
+// @import "../../node_modules/bootstrap/scss/forms";
+// @import "../../node_modules/bootstrap/scss/buttons";
+// @import "../../node_modules/bootstrap/scss/transitions";
+// @import "../../node_modules/bootstrap/scss/dropdown";
+// @import "../../node_modules/bootstrap/scss/button-group";
+// @import "../../node_modules/bootstrap/scss/input-group";
+// @import "../../node_modules/bootstrap/scss/custom-forms";
+// @import "../../node_modules/bootstrap/scss/nav";
+// @import "../../node_modules/bootstrap/scss/navbar";
+// @import "../../node_modules/bootstrap/scss/card";
+// @import "../../node_modules/bootstrap/scss/breadcrumb";
+// @import "../../node_modules/bootstrap/scss/pagination";
+// @import "../../node_modules/bootstrap/scss/badge";
+// @import "../../node_modules/bootstrap/scss/jumbotron";
+// @import "../../node_modules/bootstrap/scss/alert";
+// @import "../../node_modules/bootstrap/scss/progress";
+// @import "../../node_modules/bootstrap/scss/media";
+// @import "../../node_modules/bootstrap/scss/list-group";
+// @import "../../node_modules/bootstrap/scss/close";
+// @import "../../node_modules/bootstrap/scss/toasts";
+// @import "../../node_modules/bootstrap/scss/modal";
+// @import "../../node_modules/bootstrap/scss/tooltip";
+// @import "../../node_modules/bootstrap/scss/popover";
+// @import "../../node_modules/bootstrap/scss/carousel";
+// @import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/utilities";
+// @import "../../node_modules/bootstrap/scss/print";
+
+
+
+
+// ==============================================================
+
+:root {
+	--clr-p50: hsl(225, 22%, 93%);
+	--clr-p75: hsl(226, 24%, 71%);
+	--clr-p100: hsl(227, 24%, 59%);
+	--clr-p200: hsl(227, 33%, 42%);
+	--clr-p300: hsl(227, 55%, 30%);
+	--clr-p400: hsl(227, 55%, 21%);
+	--clr-p500: hsl(227, 55%, 18%);
+}
+
+* {
+  outline: 1px solid rgba(255,0,0,0);
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	background: var(--clr-p50);
+	transition: all 0.25s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'JetBrains Mono', serif !important;
+	font-weight: 700;
+	margin: 0;
+}
+p {
+	margin: 0;
+}
+
+// ===========Utilities Styles===========
+.ff-heading {
+  font-family: 'JetBrains Mono', serif !important;
+}
+.ff-body {
+  font-family: 'Inter', sans-serif;
+}
+
+
+// ===========Custom Styles===========
+#main-navbar {
+  nav {
+    a {
+      color: var(--secondary);
+      font-size: 1.1rem;
+      font-weight: 700;
+      
+      &:after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 3px;
+        background: var(--clr-p300);
+        opacity: 0;
+        transition: 0.25s all;
+      }
+      
+      &:hover, &.active {
+        color: var(--clr-p300);
+        text-decoration: none;
+      }
+      
+      &:hover:after, &.active:after {
+        opacity: 1;
+        width: 24px;
+      }
+    }
+  }
+}
+
+.cta__btn {
+  border: none;
+  padding: 10px 20px;
+  border: 1px solid;
+  transition: 0.25s all;
+
+  &--primary {
+    color: var(--clr-p50);
+    background-color: var(--clr-p300);
+    border-color: var(--clr-p300);
+
+
+    &:hover {
+      background-color: var(--clr-p400);
+    }
+  }
+
+  &--outline-primary {
+    color: var(--dark);
+    background-color: var(--clr-p50);
+    border-color: var(--clr-p200);
+
+    &:hover {
+      color: var(--clr-p50);
+      background-color: var(--clr-p400);
+    }
+  }
+}
+
+.hero {
+  padding: 80px 0;
+  border-radius: 40px 40px 0 0;
+
+  .productCard__wrapper {
+    @include media-breakpoint-down(md) {
+      height: 350px;
+      margin-top: 1.5rem;
+    }
+    &:last-child {
+      @include media-breakpoint-only(lg) {
+        display: none;
+      }
+    }
+
+    .productCard {
+      &__img {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 6px;
+      }
+
+      &__details {
+        position: absolute;
+        z-index: 2;
+        bottom: 16px;
+        left: 5%;
+        width: 90%;
+      }
+    }
+  }
+}
